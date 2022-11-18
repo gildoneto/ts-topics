@@ -1,0 +1,23 @@
+{
+  "name": "ts-topics",
+  "version": "1.0.0",
+  "description": "> Obs.: [clique aqui](./README-pt-BR.md) para ler a versão traduzida em português brasileiro.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gildoneto/ts-topics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gildoneto/ts-topics/issues"
+  },
+  "homepage": "https://github.com/gildoneto/ts-topics#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
