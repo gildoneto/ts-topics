@@ -36,7 +36,7 @@ interface Phone {
 };
 ```
 
-Se tentarmos fazer mesma coisa com `Type` tomaremos um erro de compilação
+Se tentarmos fazer mesma coisa com `Type` tomaremos um erro de compilação.
 
 ```typescript
 type Phone = {
@@ -49,4 +49,6 @@ type Phone = { // <- Duplicate identifier 'Phone'.ts(2300)
 }
 ```
 
-### Optional 
+### Optional Properties
+
+Na maior parte do tempo, nos encontraremos lidando com objetos que *podem* ou não ter um conjunto de propriedades. Nesses casos, podemos marcar essas propriedades como opcionais adicionando um ponto de interrogação (?) ao final de seus nomes.
