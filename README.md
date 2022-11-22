@@ -6,7 +6,7 @@
 
 `Type Aliases` and `Interface` are two different ways that the typescript language provide us for defining a custom object.
 
-The [typescript documentation](https://www.youtube.com/watch?v=Xo_ZwKDSjFI) recommends that we always define custom object types using interfaces instead of `Type Aliases`.
+The [typescript documentation](https://www.typescriptlang.org/docs/handbook/2/objects.html) recommends that we always define custom object types using interfaces instead of `Type Aliases`.
 
 We can use `type` for creating a practical alias for a type that  would take a long time to write and would have to reproduce in multiple parts of the application.
 
@@ -49,4 +49,55 @@ type Phone = { // <- Duplicate identifier 'Phone'.ts(2300)
 }
 ```
 
-### Optional Properties
+### 1.1 Property Modifiers
+
+#### 1.1.1 Optional Properties
+
+Much of the time, we’ll find ourselves dealing with objects that *might* have a property set. In those cases, we can mark those properties as optional by adding a question mark (`?`) to the end of their names.
+
+```typescript
+interface Tax {
+  federalFee: number;
+  stateFee: number;
+  customs?: number;
+}
+
+const calculateTax = (fees: Tax) => {
+  // ..
+}
+
+calculateTax({ federalFee: 1.5, stateFee: 2.4 });
+calculateTax({ federalFee: 2.7, stateFee: 5.8, customs: 9 });
+```
+
+#### 1.1.2 `readonly` Properties
+
+Properties can also be marked as `readonly` for TypeScript. While it won’t change any behavior at runtime, a property marked as `readonly` can’t be written to during type-checking.
+
+## 2. Generic Object Types
+
+Let’s imagine a Box type that can contain any value - `string`s, `number`s, `Giraffe`s, whatever.
+
+```typescript
+interface Box {
+  contents: any;
+}
+```
+
+We can make a generic `Box` type which declares a type parameter.
+
+```typescript
+interface Box<Type> {
+  contents: Type;
+}
+```
+
+You might read this as “A `Box` of `Type` is something whose `contents` have type `Type`”. Later on, when we refer to Box, we have to give a *type argument* in place of `Type`.
+
+```typescript
+let box: Box<string>;
+```
+
+```typescript
+
+```
