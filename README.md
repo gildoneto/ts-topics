@@ -98,6 +98,34 @@ You might read this as “A `Box` of `Type` is something whose `contents` have t
 let box: Box<string>;
 ```
 
-```typescript
+Think of `Box` as a template for a real type, where `Type` is a placeholder that will get replaced with some other type. When TypeScript sees `Box<string>`, it will replace every instance of `Type` in `Box<Type>` with `string`, and end up working with something like `{ contents: string }`.
 
+```typescript
+interface Box<Type> {
+  contents: Type;
+}
+interface StringBox {
+  contents: string;
+}
+
+let boxA: Box<string> = { contents: "hello" };
+boxA.contents; // (property) Box<string>.contents: string
+
+let boxB: StringBox = { contents: "world" };
+boxB.contents; // (property) StringBox.contents: string
+```
+
+`Box` is reusable in that `Type` can be substituted with anything. That means that when we need a box for a new type, we don’t need to declare a new `Box` type at all (though we certainly could if we wanted to).
+
+```typescript
+interface Box<Type> {
+  contents: Type;
+}
+ 
+interface Apple {
+  // ....
+}
+ 
+// Same as '{ contents: Apple }'.
+type AppleBox = Box<Apple>;
 ```

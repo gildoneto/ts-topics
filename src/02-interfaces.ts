@@ -3,7 +3,7 @@ interface Tablet {
   price: number;
 };
 
-const motorola: Tablet = {
+const Motorola: Tablet = {
   title: 'Moto Pad Pro',
   price: 1199,
   isOffer: true
@@ -11,4 +11,9 @@ const motorola: Tablet = {
 
 interface Tablet {
   isOffer: boolean;
+};
+
+// yields error because we cannot override existing attributes
+interface Tablet {
+  price: boolean;
 };
