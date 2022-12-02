@@ -129,3 +129,5 @@ interface Apple {
 // Same as '{ contents: Apple }'.
 type AppleBox = Box<Apple>;
 ```
+
+## 3. Union Types

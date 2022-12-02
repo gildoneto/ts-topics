@@ -1,3 +1,5 @@
+import { Address } from "cluster";
+
 // generic function
 function echo<T>(obj: T): T {
   return obj;
@@ -97,3 +99,29 @@ function dataType<T>(data: T): {data: T, type: string} {
 }
 
 console.log(dataType('Pixies 🦜').type)
+
+// ============================================= //
+
+const urlAddress = 'https://viacep.com.br/ws/01310300/json/';
+const urlStore = 'https://fakestoreapi.com/products/1';
+
+interface Address {
+  logradouro: string;
+  bairro: string;
+  uf: string;
+}
+interface Product {
+  title: string;
+  price: number;
+}
+
+async function getData<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  return await response.json();
+}
+
+async function handleData() {
+  const data = await getData<Address>(urlAddress);
+  // const data = await getData<Product>(urlStore);
+  return data;
+}
