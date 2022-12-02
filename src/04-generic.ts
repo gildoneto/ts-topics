@@ -102,9 +102,6 @@ console.log(dataType('Pixies 🦜').type)
 
 // ============================================= //
 
-const urlAddress = 'https://viacep.com.br/ws/01310300/json/';
-const urlStore = 'https://fakestoreapi.com/products/1';
-
 interface Address {
   logradouro: string;
   bairro: string;
@@ -121,7 +118,7 @@ async function getData<T>(url: string): Promise<T> {
 }
 
 async function handleData() {
-  const data = await getData<Address>(urlAddress);
-  // const data = await getData<Product>(urlStore);
+  const data = await getData<Address>('https://viacep.com.br/ws/01310300/json/');
+  // const data = await getData<Product>('https://fakestoreapi.com/products/1');
   return data;
 }
