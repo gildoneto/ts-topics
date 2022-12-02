@@ -1,5 +1,3 @@
-import { Address } from "cluster";
-
 // generic function
 function echo<T>(obj: T): T {
   return obj;
@@ -85,12 +83,12 @@ function firstFive<T>(list: T[]): T[] {
 
 // ============================================= //
 
-// interface dataType<T> {
-//   data: T;
-//   type: string;
-// }
+interface dataType<T> {
+  data: T;
+  type: string;
+}
 
-function dataType<T>(data: T): {data: T, type: string} {
+function dataType<T>(data: T): dataType<T> {
   const result = {
     data: data,
     type: typeof data
@@ -98,7 +96,7 @@ function dataType<T>(data: T): {data: T, type: string} {
   return result;
 }
 
-console.log(dataType('Pixies 🦜').type)
+console.log(dataType('Pixies 🦜'))
 
 // ============================================= //
 

@@ -26,4 +26,4 @@ const drink = (beverage: Beverage) => {
   }
 }
 
-// drink(['beer', 'vine', 'champagne', 'soda'])
+drink(['beer', 'vine', 'champagne', 'soda'])
